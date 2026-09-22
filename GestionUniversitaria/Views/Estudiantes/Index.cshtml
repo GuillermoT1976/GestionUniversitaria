@@ -1,0 +1,19 @@
+﻿@model List<GestionUniversitaria.Models.Estudiante>
+
+@{
+    ViewData["Title"] = "Estudiantes";
+}
+
+<h1>Estudiantes</h1>
+
+<p>Total de estudiantes: @Model.Count</p>
+
+<ul>
+    @foreach (var estudiante in Model)
+    {
+        <li>
+            @estudiante.Nombre @estudiante.Apellido
+            - Matrícula: @estudiante.Matricula
+        </li>
+    }
+</ul>

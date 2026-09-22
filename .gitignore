@@ -1,0 +1,21 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# .NET / build
+bin/
+obj/
+[Bb]in/
+[Oo]bj/
+
+# Logs
+*.log
+logs/
+
+# Base de datos local LiteDB
+universidad.db
+universidad.db-shm
+universidad.db-wal
