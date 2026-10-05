@@ -4,16 +4,48 @@
     ViewData["Title"] = "Estudiantes";
 }
 
-<h1>Estudiantes</h1>
+@section Styles {
+    <link rel="stylesheet" href="~/css/estudiantes.css" asp-append-version="true" />
+}
 
-<p>Total de estudiantes: @Model.Count</p>
+<div class="pagina">
 
-<ul>
-    @foreach (var estudiante in Model)
-    {
-        <li>
-            @estudiante.Nombre @estudiante.Apellido
-            - Matrícula: @estudiante.Matricula
-        </li>
-    }
-</ul>
+    <div class="encabezado">
+        <div>
+            <h1>Estudiantes</h1>
+            <p>Total de estudiantes: @Model.Count</p>
+        </div>
+        <button type="button" class="boton">Nuevo estudiante</button>
+    </div>
+
+    <div class="buscador">
+        <label>
+            Buscar por nombre, apellido o matrícula
+            <input type="text" placeholder="Ej: Gómez o 1024" />
+        </label>
+        <button type="button" class="boton">Buscar</button>
+        <button type="button" class="boton claro">Limpiar</button>
+    </div>
+
+    <ul class="lista">
+        @foreach (var estudiante in Model)
+        {
+            <li>
+                <span class="avatar">
+                    @(estudiante.Nombre?.Substring(0, 1))@(estudiante.Apellido?.Substring(0, 1))
+                </span>
+
+                <div class="datos">
+                    <strong>@estudiante.Nombre @estudiante.Apellido</strong>
+                    <span class="matricula">Matrícula: @estudiante.Matricula</span>
+                </div>
+
+                <div class="acciones">
+                    <button type="button" class="boton claro chico">Editar</button>
+                    <button type="button" class="boton rojo chico">Eliminar</button>
+                </div>
+            </li>
+        }
+    </ul>
+
+</div>
